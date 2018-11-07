@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Bootstrap後台管理</title>
+        <link rel="stylesheet" href="/Bootstrap/4/後台頁面練習/css/all.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns"
+            crossorigin="anonymous">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+            integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+
+    </head>
+
+    <body>
+        <!--navber-->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a class="navbar-brand" href="#">Bootstrap後台管理</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item ">
+                        <a class="nav-link" href="#">首頁 <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">列表</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <!--navber-->
+        <div class="container-fluid mt-3 main">
+            <div class="row mb-3">
+                <div class="col-md-3 mr-auto">
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="輸入搜尋條件" aria-label="Recipient's username"
+                            aria-describedby="basic-addon2" data-toggle="tooltip" data-placement="top" data-html="true"
+                            title="<em>按下 Enther Search<em>">
+                        <div class="input-group-append">
+                            <button class="btn btn-outline-secondary" type="button">Go!</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-9 text-right my-2 my-lg-0">
+                    <button class="btn btn-primary" type="button" data-toggle="modal" data-title="快速下單" data-backdrop="static"
+                        data-target="#installModal">
+                        <i class="fas fa-shopping-cart"></i>快速下單</button>
+                </div>
+            </div>
+
+
+            <section>
+                <table class="table table-striped table-hover table-bordered text-center">
+                    <thead>
+                        <th width="80px">#</th>
+                        <th>品項</th>
+                        <th>Name</th>
+                        <th>E-mail</th>
+                        <th width="150px">狀態</th>
+                        <th>金額</th>
+                        <th width="150px">操作</th>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>超纖細肥皂盒 一盒入</td>
+                            <td>Mark<span class="badge badge-warning">欠錢</span></td>
+                            <td>mark@mail.com</td>
+                            <td><span class="text-success">已出貨</span></td>
+                            <td>NT$899</td>
+                            <td>
+                                <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
+                                    <button type="button" class="btn btn-outline-secondary" data-toggle="modal"
+                                        data-target="#editModal" data-backdrop="static" data-title="編輯 超纖細肥皂盒 一盒入"
+                                        data-product="超纖細肥皂盒 一盒入" data-name="Mark" data-email="mark@mail.com"
+                                        data-money="NT$899" data-status="已出貨">編輯</button>
+                                    <button type="button" class="btn btn-outline-secondary">查看</button>
+                                    <button type="button" class="btn btn-outline-secondary dropdown-toggle" data-toggle="dropdown"
+                                        aria-haspopup="true" aria-expanded="false">
+                                        其他功能
+                                    </button>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item" href="#">操作紀錄</a>
+                                        <a class="dropdown-item" href="#">資料匯出</a>
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item text-danger" href="#" data-toggle="modal" data-target="#removeModal"
+                                            data-backdrop="static" data-title="超纖細肥皂盒 一盒入" data-name="Mark">刪除訂單</a>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr class="table-danger">
+                            <td>2</td>
+                            <td>防狼噴霧 一年份</td>
+                            <td>Larry<span class="badge badge-danger">奧客</span></td>
+                            <td>Larry@mail.com</td>
+                            <td><span class="text-danger">未出貨</span></td>
+                            <td>NT$8999</td>
+                            <td>
+                                <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
+                                    <button type="button" class="btn btn-outline-secondary" data-toggle="modal"
+                                        data-target="#editModal" data-backdrop="static" data-title="編輯 防狼噴霧 一年份"
+                                        data-product="防狼噴霧 一年份" data-name="Larry" data-email="Larry@mail.com"
+                                        data-money="NT$8999" data-status="已出貨">編輯</button>
+                                    <button type="button" class="btn btn-outline-secondary">查看</button>
+
+                                    <button type="button" class="btn btn-outline-secondary dropdown-toggle" data-toggle="dropdown"
+                                        aria-haspopup="true" aria-expanded="false">
+                                        其他功能
+                                    </button>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item" href="#">操作紀錄</a>
+                                        <a class="dropdown-item" href="#">資料匯出</a>
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item text-danger" href="#" data-toggle="modal" data-target="#removeModal"
+                                            data-backdrop="static" data-title="防狼噴霧 一年份" data-name="Larry">刪除訂單</a>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>(保證)無矽靈洗髮精</td>
+                            <td>Jacky<span class="badge badge-success">常客</span></td>
+                            <td>Jacky@gmail.com</td>
+                            <td><span class="text-success">已出貨</span></td>
+                            <td>NT$299</td>
+                            <td>
+                                <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
+                                    <button type="button" class="btn btn-outline-secondary" data-toggle="modal"
+                                        data-target="#editModal" data-backdrop="static" data-title="編輯 (保證)無矽靈洗髮精"
+                                        data-product="(保證)無矽靈洗髮精" data-name="Jacky" data-email="Jacky@mail.com"
+                                        data-money="NT$299" data-status="已出貨">編輯</button>
+                                    <button type="button" class="btn btn-outline-secondary">查看</button>
+
+                                    <button type="button" class="btn btn-outline-secondary dropdown-toggle" data-toggle="dropdown"
+                                        aria-haspopup="true" aria-expanded="false">
+                                        其他功能
+                                    </button>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item" href="#">操作紀錄</a>
+                                        <a class="dropdown-item" href="#">資料匯出</a>
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item text-danger" href="#" data-toggle="modal" data-target="#removeModal"
+                                            data-backdrop="static" data-title="(保證)無矽靈洗髮精" data-name="Jacky">刪除訂單</a>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr class="table-danger">
+                            <td>4</td>
+                            <td>狼牙棒 一打</td>
+                            <td>Tom<span class="badge badge-primary">新客</span></td>
+                            <td>Tom@mail.com</td>
+                            <td><span class="text-danger">缺貨</span></td>
+                            <td>NT$1300</td>
+                            <td>
+                                <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
+                                    <button type="button" class="btn btn-outline-secondary" data-toggle="modal"
+                                        data-target="#editModal" data-backdrop="static" data-title="編輯 狼牙棒 一打"
+                                        data-product="狼牙棒 一打" data-name="Tom" data-email="Tom@mail.com" data-money="NT$1300"
+                                        data-status="缺貨">編輯</button>
+                                    <button type="button" class="btn btn-outline-secondary">查看</button>
+                                    <button type="button" class="btn btn-outline-secondary dropdown-toggle" data-toggle="dropdown"
+                                        aria-haspopup="true" aria-expanded="false">
+                                        其他功能
+                                    </button>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item" href="#">操作紀錄</a>
+                                        <a class="dropdown-item" href="#">資料匯出</a>
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item text-danger" href="#" data-toggle="modal" data-target="#removeModal"
+                                            data-backdrop="static" data-title="狼牙棒 一打" data-name="Tom">刪除訂單</a>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                    </tfoot>
+                </table>
+                <div class="progress">
+                    <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
+                        aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%"></div>
+                </div>
+                <table class="table table-striped table-hover table-bordered">
+                    <thead>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>...</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>...</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>...</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>...</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>...</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                    </tfoot>
+                </table>
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination disabled d-flex justify-content-center">
+                        <li class="page-item active"><a class="page-link" href="#">Previous</a></li>
+                        <li class="page-item"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                    </ul>
+                </nav>
+                <!-- installModal -->
+                <div class="modal fade" id="installModal" tabindex="-1" role="dialog" aria-labelledby="instalModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="instalModalLabel">Product title</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <form action="/">
+                                    <div class="form-group">
+                                        <label for="Product">品項名稱</label>
+                                        <input type="text" class="form-control modal-product" id="Product" placeholder="請輸入產品名稱">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="Name">購買人</label>
+                                        <input type="text" class="form-control modal-name" id="Name" placeholder="請輸入姓名">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="Email">Email</label>
+                                        <input type="email" class="form-control modal-email" id="Email" placeholder="請輸入Email">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="Money">金額</label>
+                                        <input type="text" class="form-control modal-money" id="Money" placeholder="請輸入金額">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="Status">出貨狀態</label>
+                                        <select class="form-control form-control-lg modal-status" id="Status">
+                                            <option value="已出貨" class="text-success">已出貨</option>
+                                            <option value="未出貨" class="text-danger">未出貨</option>
+                                            <option value="缺貨" class="text-danger">缺貨</option>
+                                        </select>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">關閉</button>
+                                <button type="button" class="btn btn-primary">新增資料</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- editModal -->
+                <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="editModalLabel">Product title</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <form action="/">
+                                    <div class="form-group">
+                                        <label for="Product">品項名稱</label>
+                                        <input type="text" class="form-control modal-product" id="Product" placeholder="請輸入產品名稱">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="Name">購買人</label>
+                                        <input type="text" class="form-control modal-name" id="Name" placeholder="請輸入姓名">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="Email">Email</label>
+                                        <input type="email" class="form-control modal-email" id="Email" placeholder="請輸入Email">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="Money">金額</label>
+                                        <input type="text" class="form-control modal-money" id="Money" placeholder="請輸入金額">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="Status">出貨狀態</label>
+                                        <select class="form-control form-control-lg modal-status" id="Status">
+                                            <option value="已出貨" class="text-success">已出貨</option>
+                                            <option value="未出貨" class="text-danger">未出貨</option>
+                                            <option value="缺貨" class="text-danger">缺貨</option>
+                                        </select>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">關閉</button>
+                                <button type="button" class="btn btn-primary">刪除</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- removeModal -->
+                <div class="modal fade" id="removeModal" tabindex="-1" role="dialog" aria-labelledby="removeModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header bg-danger">
+                                <h5 class="modal-title text-white" id="removeModalLabel">Modal title</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="form-group">
+                                    <label for="name">購買人</label>
+                                    <h5 class="modal-name" id="name">購買人</h5>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">關閉</button>
+                                <button type="button" class="btn btn-outline-danger">確定刪除?</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <footer class="mt-5 py-3 bg-light text-secondary text-center">
+            Bootstrap後台管理
+        </footer>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+            crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+            crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.0/Chart.bundle.min.js"></script>
+        <script>
+            $(document).ready(function () {
+                $('[data-toggle="tooltip"]').tooltip();
+
+                //Install
+                $('#installModal').on('show.bs.modal', function (event) {
+                    var btn = $(event.relatedTarget);
+                    console.log('btn', btn);
+                    var title = btn.data('title');
+                    console.log('title', title);
+                    var modal = $(this);
+                    modal.find('.modal-title').text(title);
+                    console.log('modal', modal);
+                })
+                //Edit
+                $('#editModal').on('show.bs.modal', function (event) {
+                    var btn = $(event.relatedTarget);
+                    console.log('btn', btn);
+                    var title = btn.data('title');
+                    var product = btn.data('product');
+                    var name = btn.data('name');
+                    var email = btn.data('email');
+                    var money = btn.data('money');
+                    var status = btn.data('status');
+                    console.log('title', title);
+                    console.log('product', product);
+                    console.log('name', name);
+                    console.log('email', email);
+                    console.log('money', money);
+                    console.log('status', status);
+                    var modal = $(this);
+                    modal.find('.modal-title').text(title);
+                    modal.find('.modal-product').val(product);
+                    modal.find('.modal-name').val(name);
+                    modal.find('.modal-email').val(email);
+                    modal.find('.modal-money').val(money);
+                    modal.find('.modal-status').val(status);
+                    console.log('modal', modal);
+                })
+                //Delete
+                $('#removeModal').on('show.bs.modal', function (event) {
+                    var btn = $(event.relatedTarget);
+                    console.log('btn', btn);
+                    var title = btn.data('title');
+                    var name = btn.data('name');
+                    console.log('title', title);
+                    console.log('name', name);
+                    var modal = $(this);
+                    modal.find('.modal-title').text('確認刪除' + title);
+                    modal.find('.modal-name').text('你真的要刪除' + name + '的訂單?');
+                    console.log('modal', modal);
+                })
+            });
+        </script>
+    </body>
+
+</html>
